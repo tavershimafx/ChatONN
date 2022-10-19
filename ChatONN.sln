@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatONN.Desktop", "WpfApp1\ChatONN.Desktop.csproj", "{0800A95E-4553-4798-A914-2D09B51DC054}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatONN.Core", "ChatONN.Core\ChatONN.Core.csproj", "{C786C678-1677-482C-8AC4-49598DADBB39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0800A95E-4553-4798-A914-2D09B51DC054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0800A95E-4553-4798-A914-2D09B51DC054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0800A95E-4553-4798-A914-2D09B51DC054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0800A95E-4553-4798-A914-2D09B51DC054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C786C678-1677-482C-8AC4-49598DADBB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C786C678-1677-482C-8AC4-49598DADBB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C786C678-1677-482C-8AC4-49598DADBB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C786C678-1677-482C-8AC4-49598DADBB39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70A7764D-30E3-47CB-9907-ECCC1A014AED}
+	EndGlobalSection
+EndGlobal
