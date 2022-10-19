@@ -5,6 +5,6 @@ The chat app was inspired by a UI prototype seen on dribble at https://dribbble.
 
 The UI features an elegant modern chat dashboard which can be easily incorporated to fit in edge cases.
 
-'## The UI prototype from dribble
+## The UI prototype from dribble
 
 ![](UI%20prototype.gif)
