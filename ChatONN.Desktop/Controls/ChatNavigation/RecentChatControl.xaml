@@ -1,39 +1,47 @@
-﻿<UserControl x:Class="ChatONN.Desktop.Controls.ChatNavigation.RecentChatControl"
+﻿<UserControl x:Class="ChatONN.Desktop.Controls.RecentChatControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ChatONN.Desktop.Controls.ChatNavigation"
+             xmlns:control="clr-namespace:ChatONN.Desktop.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="400">
+             d:DesignHeight="75" d:DesignWidth="400" Background="Red">
 
-        <Grid Background="White">
+    <Border CornerRadius="10" Background="White">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="3" Opacity="0.5" />
+        </Border.Effect>
+        
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
 
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <!--The profile picture container-->
             <Border Grid.Column="0" Padding="10">
 
                 <Border Height="55"
                     Width="{Binding Height, RelativeSource={RelativeSource Self}}"
                     CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    Background="Red"
+                    Background="{StaticResource PurpleBrush}"
                     />
             </Border>
 
-        <Border Padding="0 0 10 0" Grid.Column="1">
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <!--The right section of the control-->
+            <Border Padding="0 0 10 0" Grid.Column="1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
-                <!--The top row for user display name and mesage time-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                    <!--The top row for user display name and mesage time-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
+                        <!--username of the receiving user-->
+                        <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
                             Text="Ankit Mishra"
                             FontSize="{StaticResource FontSizeRegular}"
                             FontWeight="Bold"
@@ -41,55 +49,57 @@
                             Foreground="{StaticResource DarkBrush}"
                             />
 
-                    <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="1"
+                        <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="1"
                             Text="2:41pm"
                             HorizontalAlignment="Right"
                             FontSize="{StaticResource FontSizeSmall}"
-                            Foreground="{StaticResource LightGrey}"
+                            Foreground="{StaticResource DarkGreyBrush}"
                             />
-                </Grid>
+                    </Grid>
 
-                <!--The bottom row for new message and message count-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                    <!--The bottom row for new message and message count-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
+                        <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
                             Text="Are we meeting today? Lots of tasks on board to be completed."
-                            FontSize="{StaticResource FontSizeRegular}"
+                            FontSize="{StaticResource FontSizeSmall}"
                             TextTrimming="CharacterEllipsis"
-                            Foreground="{StaticResource DarkBrush}"
+                            Foreground="{StaticResource DarkGreyBrush}"
                             VerticalAlignment="Center"
                             />
 
-                    <!--The number of unread messages-->
-                    <Border Padding="10" Grid.Column="1" 
+                        <!--The number of unread messages-->
+                        <Border Padding="0" Grid.Column="1" 
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center">
 
-                        <Border Height="15"
+                            <Border Height="20"
                             Width="{Binding Height, RelativeSource={RelativeSource Self}}"
                             CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
                             Background="{StaticResource PurpleBrush}"
                             >
 
-                            <TextBlock FontFamily="{StaticResource LatoRegular}"
+                                <TextBlock FontFamily="{StaticResource LatoRegular}"
                                     Text="2"
                                     FontSize="{StaticResource FontSizeRegular}"
                                     Foreground="White" 
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    />  
+                                    />
+                            </Border>
+
                         </Border>
-                       
-                    </Border>
-                    
-                </Grid>
-            </StackPanel>
-        </Border>
-            
+
+                    </Grid>
+                </StackPanel>
+            </Border>
+
         </Grid>
+    </Border>
+        
     
 </UserControl>

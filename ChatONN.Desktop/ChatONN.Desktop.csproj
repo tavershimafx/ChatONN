@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
+    <None Remove="Resources\Fonts\themify9f24.ttf" />
+    <None Remove="Resources\Fonts\weathericons-regular-webfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Resources\Images\" />
   </ItemGroup>
 
@@ -31,6 +38,7 @@
     <Resource Include="Resources\Fonts\Lato-Thin.ttf" />
     <Resource Include="Resources\Fonts\Lato-ThinItalic.ttf" />
     <Resource Include="Resources\Fonts\LineIcons.ttf" />
+    <Resource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
   </ItemGroup>
 
 </Project>

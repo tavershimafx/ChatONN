@@ -26,20 +26,18 @@
 
                             <!--The window menu bar-->
                             <Border Grid.Row="0" Background="White"
-                                    BorderBrush="Red"
-                                    BorderThickness="0 0 0 5"
                                     Padding="10 15 10 15">
 
                                 <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="3" Opacity="0.2" />
+                                    <DropShadowEffect BlurRadius="5" ShadowDepth="8" Opacity="0.2" Color="Red" Direction="270" />
                                 </Border.Effect>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    
-                                    
+
+
                                     <TextBlock FontFamily="{StaticResource LatoRegular}"
                                            Text="Chat ONN"
                                            HorizontalAlignment="Left"
@@ -62,7 +60,7 @@
                                 <ContentPresenter />
                             </Grid>
                         </Grid>
-                       
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -71,11 +69,11 @@
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="55" CornerRadius="8">
-            
+
         </WindowChrome>
     </WindowChrome.WindowChrome>
-    
-    
+
+
     <Grid Background="{StaticResource GreyBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -84,7 +82,22 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="1" Background="White">
-            
+            <TabControl Style="{DynamicResource TabControlStyle1}" >
+                <TabItem Style="{DynamicResource TabItemStyle1}" Header="TabItem1">
+                    <Grid Background="Blue"/>
+                </TabItem>
+                <TabItem Header="TabItem2">
+                    <Grid Background="Red">
+                        
+                    </Grid>
+                </TabItem>
+                <TabItem Header="TabItem3">
+                    <Grid Background="YellowGreen">
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
         </Border>
     </Grid>
 </Window>

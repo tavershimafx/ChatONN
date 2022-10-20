@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ChatONN.Desktop.Controls
 {
     /// <summary>
-    /// Interaction logic for RecentChatControl.xaml
+    /// Interaction logic for RecentChatListControl.xaml
     /// </summary>
-    public partial class RecentChatControl : UserControl
+    public partial class RecentChatListControl : UserControl
     {
-        public RecentChatControl()
+        public RecentChatListControl()
         {
             InitializeComponent();
         }
