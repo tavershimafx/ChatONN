@@ -4,14 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:control="clr-namespace:ChatONN.Desktop.Controls"
+             xmlns:designmodels="clr-namespace:ChatONN.Core.ViewModels.Design;assembly=ChatONN.Core"
              mc:Ignorable="d" 
-             d:DesignHeight="75" d:DesignWidth="400" Background="Red">
+             d:DesignHeight="85" d:DesignWidth="400">
 
-    <Border CornerRadius="10" Background="White">
+    <Border CornerRadius="10" Background="White" Margin="20 8 20 0"
+            d:DataContext="{x:Static designmodels:RecentChatItemDesignModel.Instance}">
+
         <Border.Effect>
-            <DropShadowEffect BlurRadius="3" Opacity="0.5" />
+            <DropShadowEffect BlurRadius="5" Opacity="0.5" Direction="270" />
         </Border.Effect>
-        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -42,7 +44,7 @@
 
                         <!--username of the receiving user-->
                         <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
-                            Text="Ankit Mishra"
+                            Text="{Binding Username}"
                             FontSize="{StaticResource FontSizeRegular}"
                             FontWeight="Bold"
                             TextTrimming="CharacterEllipsis"
@@ -50,7 +52,7 @@
                             />
 
                         <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="1"
-                            Text="2:41pm"
+                            Text="{Binding LastMessageTimeString}"
                             HorizontalAlignment="Right"
                             FontSize="{StaticResource FontSizeSmall}"
                             Foreground="{StaticResource DarkGreyBrush}"
@@ -65,7 +67,7 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
-                            Text="Are we meeting today? Lots of tasks on board to be completed."
+                            Text="{Binding LastMessage}"
                             FontSize="{StaticResource FontSizeSmall}"
                             TextTrimming="CharacterEllipsis"
                             Foreground="{StaticResource DarkGreyBrush}"
@@ -84,7 +86,7 @@
                             >
 
                                 <TextBlock FontFamily="{StaticResource LatoRegular}"
-                                    Text="2"
+                                    Text="{Binding UnreadMessageCount}"
                                     FontSize="{StaticResource FontSizeRegular}"
                                     Foreground="White" 
                                     HorizontalAlignment="Center"
@@ -93,13 +95,10 @@
                             </Border>
 
                         </Border>
-
                     </Grid>
                 </StackPanel>
             </Border>
-
         </Grid>
     </Border>
-        
-    
+
 </UserControl>

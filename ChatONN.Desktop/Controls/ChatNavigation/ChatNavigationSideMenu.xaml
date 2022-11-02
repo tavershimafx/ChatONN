@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:control="clr-namespace:ChatONN.Desktop.Controls"
+             xmlns:controls="clr-namespace:ChatONN.Desktop.Controls"
+             xmlns:designmodels="clr-namespace:ChatONN.Core.ViewModels.Design;assembly=ChatONN.Core"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <Grid Background="{StaticResource GreyBrush}">
+    
+    <Grid Background="{StaticResource GreyBrush}"
+          d:DataContext="{x:Static designmodels:ChatNavigationSideMenuDesignModel.Instance}">
         <StackPanel Orientation="Vertical">
             
             <!--The top navigation icons-->
@@ -78,9 +81,9 @@
                            VerticalAlignment="Center"
                            />
 
-                <Border Height="25"
-                        Width="25"
-                        CornerRadius="25" 
+                <Border Height="35"
+                        Width="35"
+                        CornerRadius="35" 
                         Background="{StaticResource PurpleBrush}" 
                         Grid.Column="1"
                         VerticalAlignment="Center">
@@ -94,8 +97,17 @@
             </Grid>
 
             <Grid>
-                
+                <TabControl>
+                    <TabItem Header="TabItem">
+                        <controls:RecentChatListControl d:DataContext="{Binding RecentDirectChats}" />
+                    </TabItem>
+                    
+                    <TabItem Header="TabItem">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                </TabControl>
             </Grid>
+           
         </StackPanel>
     </Grid>
 </UserControl>

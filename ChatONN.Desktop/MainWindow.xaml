@@ -82,13 +82,13 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="1" Background="White">
-            <TabControl Style="{DynamicResource TabControlStyle1}" >
-                <TabItem Style="{DynamicResource TabItemStyle1}" Header="TabItem1">
+            <TabControl Style="{StaticResource TabControlStyle1}">
+                <TabItem Style="{StaticResource TabItemStyle1}" Header="TabItem1">
                     <Grid Background="Blue"/>
                 </TabItem>
-                <TabItem Header="TabItem2">
+                <TabItem Style="{StaticResource TabItemStyle1}" Header="TabItem2">
                     <Grid Background="Red">
-                        
+
                     </Grid>
                 </TabItem>
                 <TabItem Header="TabItem3">
