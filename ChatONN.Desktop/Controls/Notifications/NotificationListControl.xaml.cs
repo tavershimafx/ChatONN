@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WebBrowser
+namespace ChatONN.Desktop.Controls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NotificationListControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NotificationListControl : UserControl
     {
-        public MainWindow()
+        public NotificationListControl()
         {
             InitializeComponent();
         }

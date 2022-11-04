@@ -11,12 +11,12 @@
     <Grid Background="{StaticResource GreyBrush}"
           d:DataContext="{x:Static designmodels:ChatNavigationSideMenuDesignModel.Instance}">
         <StackPanel Orientation="Vertical">
-            
+
             <!--The top navigation icons-->
             <Grid Background="White">
                 <Grid.Effect>
-                    <DropShadowEffect BlurRadius="15" ShadowDepth="5" 
-                                      Color="Red" 
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="5" 
+                                      Color="{StaticResource Grey}" 
                                       Opacity="0.4"
                                       Direction="270"/>
                 </Grid.Effect>
@@ -32,42 +32,45 @@
                 <!--The navigation buttons-->
                 <!--Comment-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="0"
-                        Content="&#xf0367;"
-                        Padding="20"
+                        Content="{StaticResource ChatIcon}"
+                        Padding="26"
                         />
 
                 <!--Phone Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="1"
-                        Content="&#xf03f2;"
-                        Padding="20"
+                        Content="{StaticResource PhoneIcon}"
+                        Padding="26"
                         />
 
                 <!--Messages Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="2"
-                        Content="&#xf01ee;"
-                        Padding="20"
+                        Content="{StaticResource MessageIcon}"
+                        Padding="26"
                         />
 
-                <!--User Icon-->
+                <!--Users Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="3"
-                        Content="&#xf0849;"
-                        Padding="20"
+                        Content="{StaticResource UsersIcon}"
+                        Padding="26"
                         />
 
-                <Border Padding="5" Grid.Column="4">
-
-                    <Border Height="45"
+                <!--user profile picture-->
+                <Viewbox Grid.Column="4">
+                    <Border Padding="5">
+                        <Border Height="20"
                             Width="{Binding Height, RelativeSource={RelativeSource Self}}"
                             CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
                             Background="{StaticResource PurpleBrush}"
                            >
-                        
+
+                        </Border>
                     </Border>
-                </Border>
+                </Viewbox>
+               
             </Grid>
 
             <!--Chats label and new button-->
-            <Grid Margin="25 40 25 0">
+            <Grid Margin="25 25 25 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -87,27 +90,59 @@
                         Background="{StaticResource PurpleBrush}" 
                         Grid.Column="1"
                         VerticalAlignment="Center">
-                    
+
                     <Button Style="{StaticResource IconButton}" Grid.Column="0"
-                        Content="&#xf0415;"
+                        Content="{StaticResource PlusIcon}"
                         Padding="10"
                         Foreground="White"
                         />
                 </Border>
             </Grid>
 
-            <Grid>
-                <TabControl>
-                    <TabItem Header="TabItem">
-                        <controls:RecentChatListControl d:DataContext="{Binding RecentDirectChats}" />
+            <!--The chats group tab-->
+            <Grid Margin="25 25 25 0">
+                <TabControl Style="{StaticResource ChatNavigationTab}" MinHeight="300">
+
+                    <!--Direct chats-->
+                    <TabItem Style="{StaticResource ChatNavigationTabItem}">
+                        <TabItem.Header>
+                            <TextBlock Text="DIRECT"
+                                       FontWeight="Bold"
+                                       FontSize="{StaticResource FontSizeSmall}"/>
+                        </TabItem.Header>
+                        
+                        <StackPanel Orientation="Vertical">
+                            <TextBox VerticalAlignment="Top"
+                                     Margin="3 10" Style="{StaticResource RoundedTextBox}"
+                                     FontSize="{StaticResource FontSizeRegular}"/>
+
+                            <controls:RecentChatListControl d:DataContext="{Binding RecentDirectChats}" />
+                        </StackPanel>
+                    </TabItem>
+
+                    <!--Group chats-->
+                    <TabItem Style="{StaticResource ChatNavigationTabItem}">
+                        <TabItem.Header>
+                            <TextBlock Text="GROUPS"
+                                       FontWeight="Bold"
+                                       FontSize="{StaticResource FontSizeSmall}"/>
+                        </TabItem.Header>
+
                     </TabItem>
                     
-                    <TabItem Header="TabItem">
-                        <Grid Background="#FFE5E5E5"/>
+                    <!--Public chats-->
+                    <TabItem Style="{StaticResource ChatNavigationTabItem}">
+                        <TabItem.Header>
+                            <TextBlock Text="PUBLIC"
+                                       FontWeight="Bold"
+                                       FontSize="{StaticResource FontSizeSmall}"/>
+                        </TabItem.Header>
+
                     </TabItem>
                 </TabControl>
             </Grid>
-           
+
         </StackPanel>
+        
     </Grid>
 </UserControl>

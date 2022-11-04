@@ -1,5 +1,6 @@
 ﻿namespace ChatONN.Core.ViewModels
 {
+
     /// <summary>
     /// A view model for a recent chat with a user shown in list.
     /// </summary>

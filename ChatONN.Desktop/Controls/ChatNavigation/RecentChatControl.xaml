@@ -8,11 +8,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="85" d:DesignWidth="400">
 
-    <Border CornerRadius="10" Background="White" Margin="20 8 20 0"
+    <Border CornerRadius="10" Background="White" Margin="0 8 0 0"
             d:DataContext="{x:Static designmodels:RecentChatItemDesignModel.Instance}">
 
         <Border.Effect>
-            <DropShadowEffect BlurRadius="5" Opacity="0.5" Direction="270" />
+            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.5" Direction="270" />
         </Border.Effect>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <!--The profile picture container-->
-            <Border Grid.Column="0" Padding="10">
+            <Border Grid.Column="0" Padding="8">
 
                 <Border Height="55"
                     Width="{Binding Height, RelativeSource={RelativeSource Self}}"

@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatONN.Desktop"
+        xmlns:controls="clr-namespace:ChatONN.Desktop.Controls"
         mc:Ignorable="d"
         Title="Chat ONN" 
-        Height="450" 
+        d:Height="450" 
         WindowState="Maximized"
-        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Width="800">
+        d:Width="1200">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -81,23 +81,93 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Column="1" Background="White">
-            <TabControl Style="{StaticResource TabControlStyle1}">
-                <TabItem Style="{StaticResource TabItemStyle1}" Header="TabItem1">
-                    <Grid Background="Blue"/>
-                </TabItem>
-                <TabItem Style="{StaticResource TabItemStyle1}" Header="TabItem2">
-                    <Grid Background="Red">
+        <!--The left chat navigaton sidebar-->
+        <controls:ChatNavigationSideMenu Grid.Column="0" />
 
+        <!--The center chat items-->
+        <Border Grid.Column="1" BorderThickness="0 0 1 0" BorderBrush="{StaticResource GreyBrush}">
+
+
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--Top header bar-->
+                
+                <Border Grid.Row="0" VerticalAlignment="Bottom">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="3" ShadowDepth="5" 
+                                          Color="{StaticResource Grey}" 
+                                          Opacity="0.4"
+                                          Direction="270"/>
+                    </Border.Effect>
+                    <Grid Background="White">
+
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Left selected chat initials-->
+                        <StackPanel Orientation="Horizontal" Grid.Column="0">
+                            <!--user profile picture-->
+                            <Border Padding="5">
+                                <Border Height="45"
+                                Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                Background="{StaticResource PurpleBrush}" >
+
+                                </Border>
+                            </Border>
+
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBlock Text="Kirti Yadav"
+                                       FontSize="{StaticResource FontSizeRegular}"
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource DarkBrush}"
+                                       VerticalAlignment="Center"
+                                       Padding="0 0 0 0"/>
+
+                                <TextBlock Text="Last seen 3 hours ago"
+                                       FontSize="{StaticResource FontSizeSmall}"
+                                       Foreground="{StaticResource GreyBrush}"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
+
+                            <!--Messages Icon-->
+                            <Button Style="{StaticResource IconButton}"
+                                Content="{StaticResource PhoneIcon}"
+                                Padding="26"
+                                VerticalAlignment="Center" />
+
+                            <!--Messages Icon-->
+                            <Button Style="{StaticResource IconButton}"
+                                Content="{StaticResource VideoIcon}"
+                                Padding="26"
+                                VerticalAlignment="Center" />
+
+                            <!--Messages Icon-->
+                            <Button Style="{StaticResource IconButton}"
+                                Content="{StaticResource HorizontalEllipsisIcon}"
+                                Padding="26"
+                                VerticalAlignment="Center" />
+                        </StackPanel>
                     </Grid>
-                </TabItem>
-                <TabItem Header="TabItem3">
-                    <Grid Background="YellowGreen">
 
-                    </Grid>
-                </TabItem>
-            </TabControl>
-
+                </Border>
+            </Grid>
         </Border>
+        <Grid Background="White" Grid.Column="2">
+
+            <controls:NotificationSidePanel />
+        </Grid>
     </Grid>
 </Window>

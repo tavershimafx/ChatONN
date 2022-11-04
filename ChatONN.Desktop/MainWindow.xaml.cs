@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ChatONN.Desktop.ViewModels;
+using System.Windows;
 
 namespace ChatONN.Desktop
 {
@@ -10,6 +11,8 @@ namespace ChatONN.Desktop
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new WindowViewModel(this);
         }
     }
 }

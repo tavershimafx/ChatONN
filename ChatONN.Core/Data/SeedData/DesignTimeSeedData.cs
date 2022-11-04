@@ -28,5 +28,27 @@ namespace ChatONN.Core.Data.SeedData
                 }
             };
         }
+
+        public static ObservableCollection<NotificationItemViewModel> Notifications()
+        {
+            return new ObservableCollection<NotificationItemViewModel>
+            {
+                new NotificationItemViewModel
+                {
+                    Message = "@Ankita Mentioned you in a \"Trip to Goo\"",
+                    NotificationTime = DateTimeOffset.UtcNow
+                },
+                new NotificationItemViewModel
+                {
+                    Message = "@Ankita Mentioned you in a \"Trip to Goo\"",
+                    NotificationTime = DateTimeOffset.UtcNow
+                },
+                new NotificationItemViewModel
+                {
+                    Message = "@Ankita Mentioned you in a \"Trip to Goo\"",
+                    NotificationTime = DateTimeOffset.UtcNow
+                }
+            };
+        }
     }
 }
