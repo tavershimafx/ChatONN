@@ -38,5 +38,10 @@
         /// Number of unread messages
         /// </summary>
         public int UnreadMessageCount { get; set; }
+
+        /// <summary>
+        /// A flag showing the selected chat is open
+        /// </summary>
+        public bool IsSelected { get; set; }
     }
 }

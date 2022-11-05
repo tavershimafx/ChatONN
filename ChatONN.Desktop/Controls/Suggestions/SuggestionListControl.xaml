@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ChatONN.Desktop.Controls.RecentChatListControl"
+﻿<UserControl x:Class="ChatONN.Desktop.Controls.SuggestionListControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,18 +8,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="400">
 
-    <Grid DataContext="{x:Static designmodels:RecentChatListDesignModel.Instance}"
-          Background="Transparent" MaxHeight="420">
-       
+    <Grid d:DataContext="{x:Static designmodels:SuggestionListDesignModel.Instance}"
+          Background="Transparent">
         <ScrollViewer VerticalScrollBarVisibility="Auto" 
-                      BorderThickness="0" Background="Transparent">
-            <ItemsControl ItemsSource="{Binding Items}" Padding="3 0 3 10">
+                      BorderThickness="0"
+                      Background="Transparent"
+                      MaxHeight="250">
+            <ItemsControl ItemsSource="{Binding Items}" Padding="0 0 0 10">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <controls:RecentChatControl />
+                        <controls:SuggestionItemControl />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-       </ScrollViewer>
+        </ScrollViewer>
     </Grid>
 </UserControl>

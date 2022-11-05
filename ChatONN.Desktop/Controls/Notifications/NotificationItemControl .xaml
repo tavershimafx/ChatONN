@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:control="clr-namespace:ChatONN.Desktop.Controls"
              xmlns:designmodels="clr-namespace:ChatONN.Core.ViewModels.Design;assembly=ChatONN.Core"
+             xmlns:converters="clr-namespace:ChatONN.Desktop.ValueConverters"
              mc:Ignorable="d" 
              d:DesignHeight="85" d:DesignWidth="400">
 
-    <Border CornerRadius="10" Background="White" Margin="0 8 0 0"
+    <Border CornerRadius="10" Background="White"
             d:DataContext="{x:Static designmodels:NotificationItemDesignModel.Instance}">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -18,21 +19,26 @@
             </Grid.ColumnDefinitions>
 
             <!--The profile picture container-->
-            <Border Grid.Column="0" Padding="10">
+            <Border Grid.Column="0" Padding="8">
 
-                <Border Height="55"
+                <Border Height="45"
                     Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    Background="{StaticResource PurpleBrush}"
-                    />
+                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding UserProfileUrl, Converter={converters:PathToImageConverter}}" />
+                    </Border.Background>
+                </Border>
+
             </Border>
 
             <!--The right section of the control-->
             <Border Padding="0 0 10 0" Grid.Column="1">
                 <TextBlock Text="{Binding Message}"
                            TextWrapping="Wrap"
-                           FontSize="{StaticResource FontSizeRegular}"
-                           VerticalAlignment="Center"/>
+                           FontSize="{StaticResource FontSizeSmall}"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"/>
             </Border>
         </Grid>
     </Border>

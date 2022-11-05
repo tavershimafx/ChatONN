@@ -12,7 +12,8 @@
           Background="Transparent">
         <ScrollViewer VerticalScrollBarVisibility="Auto" 
                       BorderThickness="0"
-                      Background="Transparent">
+                      Background="Transparent"
+                      MaxHeight="350">
             <ItemsControl ItemsSource="{Binding Items}" Padding="0 0 0 10">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

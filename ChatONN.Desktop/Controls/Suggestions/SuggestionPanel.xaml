@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ChatONN.Desktop.Controls.NotificationSidePanel"
+﻿<UserControl x:Class="ChatONN.Desktop.Controls.SuggestionPanel"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,16 +9,16 @@
              d:DesignHeight="450" d:DesignWidth="400">
     
     <Grid Background="White"
-          DataContext="{x:Static designmodels:NotificationSidePanelDesignModel.Instance}">
+          DataContext="{x:Static designmodels:SuggestionPanelDesignModel.Instance}">
 
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="Notifications"
+            <TextBlock Text="Suggestions"
                    FontSize="{StaticResource FontSizeXLarge}"
                    FontWeight="Bold"
                    Margin="0 5 0 10"/>
 
             <!--The notifications-->
-            <controls:NotificationListControl DataContext="{Binding Notifications}" />
+            <controls:SuggestionListControl DataContext="{Binding Suggestions}" />
         </StackPanel>
     </Grid>
 </UserControl>

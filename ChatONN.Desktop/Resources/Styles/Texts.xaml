@@ -58,4 +58,20 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TextBoxFilled" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <ScrollViewer x:Name="PART_ContentHost"
+                                    Margin="0"
+                                    Padding="0"
+                                    BorderThickness="0"
+                                    Focusable="false" 
+                                    VerticalAlignment="Center"
+                                    HorizontalScrollBarVisibility="Hidden" 
+                                    VerticalScrollBarVisibility="Hidden"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

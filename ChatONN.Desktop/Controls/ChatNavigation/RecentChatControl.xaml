@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:control="clr-namespace:ChatONN.Desktop.Controls"
              xmlns:designmodels="clr-namespace:ChatONN.Core.ViewModels.Design;assembly=ChatONN.Core"
+             xmlns:converters="clr-namespace:ChatONN.Desktop.ValueConverters"
              mc:Ignorable="d" 
              d:DesignHeight="85" d:DesignWidth="400">
 
@@ -24,11 +25,13 @@
             <!--The profile picture container-->
             <Border Grid.Column="0" Padding="8">
 
-                <Border Height="55"
+                <Border Height="45"
                     Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    Background="{StaticResource PurpleBrush}"
-                    />
+                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding ProfilePictureUrl, Converter={converters:PathToImageConverter}}" />
+                    </Border.Background>
+                </Border>
             </Border>
 
             <!--The right section of the control-->
@@ -79,7 +82,7 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center">
 
-                            <Border Height="20"
+                            <Border Height="17"
                             Width="{Binding Height, RelativeSource={RelativeSource Self}}"
                             CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
                             Background="{StaticResource PurpleBrush}"
@@ -87,13 +90,12 @@
 
                                 <TextBlock FontFamily="{StaticResource LatoRegular}"
                                     Text="{Binding UnreadMessageCount}"
-                                    FontSize="{StaticResource FontSizeRegular}"
+                                    FontSize="{StaticResource FontSizeSmall}"
                                     Foreground="White" 
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     />
                             </Border>
-
                         </Border>
                     </Grid>
                 </StackPanel>

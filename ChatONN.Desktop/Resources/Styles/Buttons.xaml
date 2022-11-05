@@ -39,4 +39,63 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <Style x:Key="RoundedButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBase}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="15" 
+                            Background="{StaticResource PurpleBrush}"
+                            Padding="23 4">
+                        <TextBlock Text="{TemplateBinding Content}"
+                                   FontSize="{StaticResource FontSizeSmall}"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FullRoundedButton" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontFamily" Value="{StaticResource MaterialIcon}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}" x:Name="border">
+                    <Border CornerRadius="20" 
+                            Margin="{TemplateBinding Margin}"
+                            ClipToBounds="True">
+
+                        <!--The icon text-->
+                        <TextBlock Text="{TemplateBinding Content}"
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   Foreground="{TemplateBinding Foreground}"
+                                   Background="{TemplateBinding Background}"
+                                   Padding="{TemplateBinding Padding}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   >
+                            <TextBlock.OpacityMask>
+                                <VisualBrush Visual="{Binding ElementName=border}" />
+                            </TextBlock.OpacityMask>
+                        </TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource DarkGreyBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

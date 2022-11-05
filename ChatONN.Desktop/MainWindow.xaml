@@ -29,7 +29,7 @@
                                     Padding="10 15 10 15">
 
                                 <Border.Effect>
-                                    <DropShadowEffect BlurRadius="5" ShadowDepth="8" Opacity="0.2" Color="Red" Direction="270" />
+                                    <DropShadowEffect BlurRadius="1" ShadowDepth="8" Opacity="0.2" Color="Red" Direction="270" />
                                 </Border.Effect>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -99,7 +99,7 @@
                 
                 <Border Grid.Row="0" VerticalAlignment="Bottom">
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="3" ShadowDepth="5" 
+                        <DropShadowEffect BlurRadius="5" ShadowDepth="5" 
                                           Color="{StaticResource Grey}" 
                                           Opacity="0.4"
                                           Direction="270"/>
@@ -119,9 +119,10 @@
                             <Border Padding="5">
                                 <Border Height="45"
                                 Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                                CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
-                                Background="{StaticResource PurpleBrush}" >
-
+                                CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/Resources/Images/sm/avatar3.jpg" />
+                                    </Border.Background>
                                 </Border>
                             </Border>
 
@@ -142,19 +143,19 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right">
 
-                            <!--Messages Icon-->
+                            <!--call Icon-->
                             <Button Style="{StaticResource IconButton}"
                                 Content="{StaticResource PhoneIcon}"
                                 Padding="26"
                                 VerticalAlignment="Center" />
 
-                            <!--Messages Icon-->
+                            <!--video Icon-->
                             <Button Style="{StaticResource IconButton}"
                                 Content="{StaticResource VideoIcon}"
                                 Padding="26"
                                 VerticalAlignment="Center" />
 
-                            <!--Messages Icon-->
+                            <!--more Icon-->
                             <Button Style="{StaticResource IconButton}"
                                 Content="{StaticResource HorizontalEllipsisIcon}"
                                 Padding="26"
@@ -163,11 +164,69 @@
                     </Grid>
 
                 </Border>
+
+                <Grid Grid.Row="2" Background="White">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="15" ShadowDepth="1" Opacity="0.3" Color="{StaticResource Grey}" Direction="90" />
+                    </Grid.Effect>
+                    
+                    <Border CornerRadius="20" Margin="20 5 10 5"
+                            Background="{StaticResource GreyBrush}"
+                            ClipToBounds="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button Style="{StaticResource FullRoundedButton}"
+                                Content="{StaticResource AttachmentIcon}"
+                                Padding="10"
+                                Grid.Column="0"/>
+
+                            <!--Message textbox-->
+                            <TextBox Grid.Column="1" Padding="3"
+                                     VerticalAlignment="Center"
+                                     Style="{StaticResource TextBoxFilled}"/>
+
+                            <StackPanel Grid.Column="2"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Right">
+                                
+                                <!--Emoji button-->
+                                <Button Style="{StaticResource FullRoundedButton}"
+                                        Content="{StaticResource EmojiIcon}"
+                                        Padding="7" />
+
+                                <!--Mic button-->
+                                <Button Style="{StaticResource FullRoundedButton}"
+                                        Content="{StaticResource MicIcon}"
+                                        Padding="7" />
+
+                                <!--send button-->
+                                <Button Style="{StaticResource FullRoundedButton}"
+                                        Content="{StaticResource SendMessageIcon}"
+                                        Padding="7" />
+                            </StackPanel>
+                        </Grid>
+                        
+                    </Border>
+                </Grid>
             </Grid>
         </Border>
-        <Grid Background="White" Grid.Column="2">
+        
+        <!--The right navigation pane -->
+        <Border Background="White" Grid.Column="2"
+                Padding=" 20 0 20 0" 
+                MaxHeight="680">
 
-            <controls:NotificationSidePanel />
-        </Grid>
+            <StackPanel Orientation="Vertical">
+                <controls:NotificationSidePanel />
+
+                <!--Suggestion panel-->
+                <controls:SuggestionPanel />
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

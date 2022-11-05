@@ -7,6 +7,7 @@
         {
             Message = "Are we meeting today? Lets talk about the progress of our work.";
             NotificationTime = DateTimeOffset.Now;
+            UserProfileUrl = @"\Resources\Images\sm\avatar1.jpg";
         }
     }
 }

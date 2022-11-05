@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="ChatONN.Desktop.Controls.SuggestionItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:control="clr-namespace:ChatONN.Desktop.Controls"
+             xmlns:designmodels="clr-namespace:ChatONN.Core.ViewModels.Design;assembly=ChatONN.Core"
+             xmlns:converters="clr-namespace:ChatONN.Desktop.ValueConverters"
+             mc:Ignorable="d" 
+             d:DesignHeight="85" d:DesignWidth="400">
+
+    <Border CornerRadius="10" Background="White" Margin="0 0 0 0"
+            d:DataContext="{x:Static designmodels:SuggestionItemDesignModel.Instance}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--The profile picture container-->
+            <Border Grid.Column="0" Padding="10">
+
+                <Border Height="45"
+                    Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+
+                    <Border.Background>
+                        <ImageBrush ImageSource="{Binding UserProfileUrl, Converter={converters:PathToImageConverter}}" />
+                    </Border.Background>
+                </Border>
+
+            </Border>
+
+            <!--The right section of the control-->
+            <Border Padding="0 0 8 0" Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Username}"
+                                   FontSize="{StaticResource FontSizeRegular}"
+                                   FontWeight="Bold"
+                                   Foreground="Black"
+                                   VerticalAlignment="Center"/>
+
+                        <TextBlock Text="{Binding Message}"
+                                   FontSize="{StaticResource FontSizeSmall}"
+                                   Foreground="{StaticResource GreyBrush}"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <Button Style="{StaticResource RoundedButton}" Content="Add"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+
+</UserControl>

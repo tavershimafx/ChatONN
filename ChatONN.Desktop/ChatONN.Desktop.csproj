@@ -12,10 +12,13 @@
     <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
     <None Remove="Resources\Fonts\themify9f24.ttf" />
     <None Remove="Resources\Fonts\weathericons-regular-webfont.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Images\" />
+    <None Remove="Resources\Images\sm\avatar1.jpg" />
+    <None Remove="Resources\Images\sm\avatar2.jpg" />
+    <None Remove="Resources\Images\sm\avatar3.jpg" />
+    <None Remove="Resources\Images\sm\avatar4.jpg" />
+    <None Remove="Resources\Images\sm\avatar5.jpg" />
+    <None Remove="Resources\Images\sm\avatar6.jpg" />
+    <None Remove="Resources\Images\user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,9 +46,25 @@
     <Resource Include="Resources\Fonts\Lato-ThinItalic.ttf" />
     <Resource Include="Resources\Fonts\LineIcons.ttf" />
     <Resource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
+    <Resource Include="Resources\Images\sm\avatar1.jpg" />
+    <Resource Include="Resources\Images\sm\avatar2.jpg" />
+    <Resource Include="Resources\Images\sm\avatar3.jpg" />
+    <Resource Include="Resources\Images\sm\avatar4.jpg" />
+    <Resource Include="Resources\Images\sm\avatar5.jpg" />
+    <Resource Include="Resources\Images\sm\avatar6.jpg" />
+    <Resource Include="Resources\Images\user.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\Suggestions\SuggestionItemControl .xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Suggestions\SuggestionListControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Suggestions\SuggestionPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\Notifications\NotificationSidePanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -58,6 +77,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Controls\Suggestions\SuggestionItemControl .xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Suggestions\SuggestionListControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Suggestions\SuggestionPanel.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\Notifications\NotificationSidePanel.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
