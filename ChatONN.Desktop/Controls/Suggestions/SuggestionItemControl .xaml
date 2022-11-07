@@ -9,56 +9,97 @@
              mc:Ignorable="d" 
              d:DesignHeight="85" d:DesignWidth="400">
 
-    <Border CornerRadius="10" Background="White" Margin="0 0 0 0"
-            d:DataContext="{x:Static designmodels:SuggestionItemDesignModel.Instance}">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+    <UserControl.Resources d:DataContext="{x:Static designmodels:SuggestionItemDesignModel.Instance}">
+        <Style TargetType="{x:Type control:SuggestionItemControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type control:SuggestionItemControl}">
+                        <Border Background="White" Margin="0 0 0 0" x:Name="border">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
 
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-            <!--The profile picture container-->
-            <Border Grid.Column="0" Padding="10">
+                                <!--The profile picture container-->
+                                <Border Grid.Column="0" Padding="10 5">
 
-                <Border Height="45"
-                    Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+                                    <Border Height="45"
+                                        Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                        CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
 
-                    <Border.Background>
-                        <ImageBrush ImageSource="{Binding UserProfileUrl, Converter={converters:PathToImageConverter}}" />
-                    </Border.Background>
-                </Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding UserProfileUrl, Converter={converters:PathToImageConverter}}" />
+                                        </Border.Background>
+                                    </Border>
 
-            </Border>
+                                </Border>
 
-            <!--The right section of the control-->
-            <Border Padding="0 0 8 0" Grid.Column="1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                                <!--The right section of the control-->
+                                <Border Padding="0 0 8 0" Grid.Column="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                        <TextBlock Text="{Binding Username}"
-                                   FontSize="{StaticResource FontSizeRegular}"
-                                   FontWeight="Bold"
-                                   Foreground="Black"
-                                   VerticalAlignment="Center"/>
+                                        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding Username}"
+                                                       FontSize="{StaticResource FontSizeRegular}"
+                                                       FontWeight="Bold"
+                                                       Foreground="Black"
+                                                       VerticalAlignment="Center"/>
 
-                        <TextBlock Text="{Binding Message}"
-                                   FontSize="{StaticResource FontSizeSmall}"
-                                   Foreground="{StaticResource GreyBrush}"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
+                                            <TextBlock Text="{Binding Message}"
+                                                       FontSize="{StaticResource FontSizeSmall}"
+                                                       Foreground="{StaticResource GreyBrush}"
+                                                       VerticalAlignment="Center"
+                                                       x:Name="message"/>
+                                        </StackPanel>
 
-                    <Button Style="{StaticResource RoundedButton}" Content="Add"
-                            VerticalAlignment="Center"
-                            Grid.Column="1"/>
-                </Grid>
-            </Border>
-        </Grid>
-    </Border>
+                                        <Button Style="{StaticResource RoundedButton}" Content="Add"
+                                                VerticalAlignment="Center"
+                                                Grid.Column="1"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
 
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource DarkGrey}"
+                                                        Storyboard.TargetProperty="Background.Color"
+                                                        Storyboard.TargetName="border" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource White}"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="message" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource White}"
+                                                        Storyboard.TargetProperty="Background.Color"
+                                                        Storyboard.TargetName="border" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="Black"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="message" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 </UserControl>

@@ -9,98 +9,159 @@
              mc:Ignorable="d" 
              d:DesignHeight="85" d:DesignWidth="400">
 
-    <Border CornerRadius="10" Background="White" Margin="0 8 0 0"
-            d:DataContext="{x:Static designmodels:RecentChatItemDesignModel.Instance}">
 
-        <Border.Effect>
-            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.5" Direction="270" />
-        </Border.Effect>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <!--The profile picture container-->
-            <Border Grid.Column="0" Padding="8">
-
-                <Border Height="45"
-                    Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
-                    <Border.Background>
-                        <ImageBrush ImageSource="{Binding ProfilePictureUrl, Converter={converters:PathToImageConverter}}" />
-                    </Border.Background>
-                </Border>
-            </Border>
-
-            <!--The right section of the control-->
-            <Border Padding="0 0 10 0" Grid.Column="1">
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-
-                    <!--The top row for user display name and mesage time-->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <!--username of the receiving user-->
-                        <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
-                            Text="{Binding Username}"
-                            FontSize="{StaticResource FontSizeRegular}"
-                            FontWeight="Bold"
-                            TextTrimming="CharacterEllipsis"
-                            Foreground="{StaticResource DarkBrush}"
-                            />
-
-                        <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="1"
-                            Text="{Binding LastMessageTimeString}"
-                            HorizontalAlignment="Right"
-                            FontSize="{StaticResource FontSizeSmall}"
-                            Foreground="{StaticResource DarkGreyBrush}"
-                            />
-                    </Grid>
-
-                    <!--The bottom row for new message and message count-->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
-                            Text="{Binding LastMessage}"
-                            FontSize="{StaticResource FontSizeSmall}"
-                            TextTrimming="CharacterEllipsis"
-                            Foreground="{StaticResource DarkGreyBrush}"
-                            VerticalAlignment="Center"
-                            />
-
-                        <!--The number of unread messages-->
-                        <Border Padding="0" Grid.Column="1" 
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center">
-
-                            <Border Height="17"
-                            Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                            CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
-                            Background="{StaticResource PurpleBrush}"
+    <UserControl.Resources d:DataContext="{x:Static designmodels:RecentChatItemDesignModel.Instance}">
+        <Style TargetType="{x:Type control:RecentChatControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type UserControl}">
+                        <Border CornerRadius="10" Background="White" Margin="0 8 0 0" x:Name="border"
                             >
 
-                                <TextBlock FontFamily="{StaticResource LatoRegular}"
-                                    Text="{Binding UnreadMessageCount}"
-                                    FontSize="{StaticResource FontSizeSmall}"
-                                    Foreground="White" 
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    />
-                            </Border>
-                        </Border>
-                    </Grid>
-                </StackPanel>
-            </Border>
-        </Grid>
-    </Border>
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.5" Direction="270" />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
 
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--The profile picture container-->
+                                <Border Grid.Column="0" Padding="8">
+
+                                    <Border Height="45"
+                                        Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                        CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding ProfilePictureUrl, Converter={converters:PathToImageConverter}}" />
+                                        </Border.Background>
+                                    </Border>
+                                </Border>
+
+                                <!--The right section of the control-->
+                                <Border Padding="0 0 10 0" Grid.Column="1">
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+
+                                        <!--The top row for user display name and mesage time-->
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <!--username of the receiving user-->
+                                            <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
+                                                        Text="{Binding Username}"
+                                                        FontSize="{StaticResource FontSizeRegular}"
+                                                        FontWeight="Bold"
+                                                        TextTrimming="CharacterEllipsis"
+                                                        Foreground="{StaticResource DarkBrush}"
+                                                        x:Name="username"
+                                                        />
+
+                                            <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="1"
+                                                        Text="{Binding LastMessageTimeString}"
+                                                        HorizontalAlignment="Right"
+                                                        FontSize="{StaticResource FontSizeSmall}"
+                                                        Foreground="{StaticResource DarkGreyBrush}"
+                                                        x:Name="messageTime"
+                                                        />  
+                                        </Grid>
+
+                                        <!--The bottom row for new message and message count-->
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
+                                                    Text="{Binding LastMessage}"
+                                                    FontSize="{StaticResource FontSizeSmall}"
+                                                    TextTrimming="CharacterEllipsis"
+                                                    Foreground="{StaticResource DarkGreyBrush}"
+                                                    VerticalAlignment="Center"
+                                                    x:Name="lastMessage"
+                                                    />
+
+                                            <!--The number of unread messages-->
+                                            <Border Padding="0" Grid.Column="1" 
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center">
+
+                                                <Border Height="17"
+                                                        Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                                        CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                                        Background="{StaticResource PurpleGradientBrush}"
+                                                        >
+
+                                                    <TextBlock FontFamily="{StaticResource LatoRegular}"
+                                                                Text="{Binding UnreadMessageCount}"
+                                                                FontSize="{StaticResource FontSizeSmall}"
+                                                                Foreground="White" 
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                />
+                                                </Border>
+                                            </Border>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+                        
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource DarkGrey}"
+                                                        Storyboard.TargetProperty="Background.Color"
+                                                        Storyboard.TargetName="border" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource White}"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="username" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource White}"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="messageTime" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource White}"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="lastMessage" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="{StaticResource White}"
+                                                        Storyboard.TargetProperty="Background.Color"
+                                                        Storyboard.TargetName="border" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="Black"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="username" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="Black"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="messageTime" />
+                                        <ColorAnimation Duration="00:00:0.3"
+                                                        To="Black"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="lastMessage" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 </UserControl>

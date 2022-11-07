@@ -2,6 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
+    <Color x:Key="White">#FFFFFF</Color>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"></SolidColorBrush>
+
     <Color x:Key="LightGrey">#EFEFF7</Color>
     <SolidColorBrush x:Key="LightGreyBrush" Color="{StaticResource LightGrey}"></SolidColorBrush>
 
@@ -14,6 +17,29 @@
     <Color x:Key="Purple">#8C39EF</Color>
     <SolidColorBrush x:Key="PurpleBrush" Color="{StaticResource Purple}"></SolidColorBrush>
 
+    <Color x:Key="Purple1">#7A52F7</Color>
+    <SolidColorBrush x:Key="PurpleBrush1" Color="{StaticResource Purple}"></SolidColorBrush>
+
+    <Color x:Key="Purple2">#884AF7</Color>
+    <SolidColorBrush x:Key="PurpleBrush2" Color="{StaticResource Purple2}"></SolidColorBrush>
+
+    <Color x:Key="Purple3">#9853F8</Color>
+    <SolidColorBrush x:Key="PurpleBrush3" Color="{StaticResource Purple3}"></SolidColorBrush>
+
+    <Color x:Key="Purple4">#A955F7</Color>
+    <SolidColorBrush x:Key="PurpleBrush4" Color="{StaticResource Purple4}"></SolidColorBrush>
+
+    <Color x:Key="Purple5">#B849EB</Color>
+    <SolidColorBrush x:Key="PurpleBrush5" Color="{StaticResource Purple4}"></SolidColorBrush>
+
     <Color x:Key="Dark">#2F3444</Color>
     <SolidColorBrush x:Key="DarkBrush" Color="{StaticResource Dark}"></SolidColorBrush>
+
+    <LinearGradientBrush x:Key="PurpleGradientBrush">
+        <GradientStop Color="{StaticResource Purple1}" Offset="0.2" />
+        <GradientStop Color="{StaticResource Purple2}" Offset="0.4" />
+        <GradientStop Color="{StaticResource Purple3}" Offset="0.6" />
+        <GradientStop Color="{StaticResource Purple4}" Offset="0.8" />
+        <GradientStop Color="{StaticResource Purple5}" Offset="1.0" />
+    </LinearGradientBrush>
 </ResourceDictionary>

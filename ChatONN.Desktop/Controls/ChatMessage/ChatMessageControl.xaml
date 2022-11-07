@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ChatONN.Desktop.Controls.ChatMessageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChatONN.Desktop.Controls"
+             xmlns:designmodels="clr-namespace:ChatONN.Core.ViewModels.Design;assembly=ChatONN.Core"
+             xmlns:converters="clr-namespace:ChatONN.Desktop.ValueConverters"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="300">
+    <Border CornerRadius="{Binding Converter={converters:MessageToCornerRadiusConverter}}" 
+            Background="{Binding IsSentByMe, Converter={converters:IsSentByMeToBackgroundConverter}}" 
+            Margin="0 8 0 0"
+            Padding="20 10"
+            MaxWidth="450"
+            d:DataContext="{x:Static designmodels:ChatMessageDesignModel.Item}"
+            HorizontalAlignment="{Binding HorizontalAlignment, Converter={converters:ElementHorizontalAlignmentConverter}}">
+
+            
+    <!--username of the receiving user-->
+    
+            <TextBlock FontFamily="{StaticResource LatoRegular}" Grid.Column="0"
+                            Text="{Binding Message}"
+                            FontSize="{StaticResource FontSizeRegular}"
+                            TextWrapping="Wrap"
+                            Foreground="{Binding IsSentByMe, Converter={converters:IsSentByMeToForegroundConverter}}"
+                            />
+        </Border>
+</UserControl>

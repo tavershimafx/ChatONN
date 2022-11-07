@@ -17,7 +17,7 @@
             <ItemsControl ItemsSource="{Binding Items}" Padding="0 0 0 10">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <controls:NotificationItemControl />
+                        <controls:NotificationItemControl Cursor="Hand" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

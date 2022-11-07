@@ -38,41 +38,41 @@
                 <!--Comment-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="0"
                         Content="{StaticResource ChatIcon}"
-                        Padding="26"
+                        Padding="20"
                         />
 
                 <!--Phone Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="1"
                         Content="{StaticResource PhoneIcon}"
-                        Padding="26"
+                        Padding="20"
                         />
 
                 <!--Messages Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="2"
                         Content="{StaticResource MessageIcon}"
-                        Padding="26"
+                        Padding="20"
                         />
 
                 <!--Users Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="3"
                         Content="{StaticResource UsersIcon}"
-                        Padding="26"
+                        Padding="20"
                         />
 
                 <!--user profile picture-->
-                <Viewbox Grid.Column="4">
-                    <Border Padding="5">
-                        <Border Height="20"
+
+            <Viewbox Grid.Column="4">
+                <Border Padding="5">
+                    <Border Height="15"
                             Width="{Binding Height, RelativeSource={RelativeSource Self}}"
                             CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
-                            <Border.Background>
-                                <ImageBrush ImageSource="/Resources/Images/sm/avatar4.jpg" />
-                            </Border.Background>
-                        </Border>
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Resources/Images/sm/avatar4.jpg" />
+                        </Border.Background>
                     </Border>
-                </Viewbox>
-               
-            </Grid>
+                </Border>
+            </Viewbox>
+        </Grid>
 
             <!--Chats label and new button-->
             <Grid Margin="20 25 20 0" Grid.Row="1">
@@ -92,7 +92,7 @@
                 <Border Height="35"
                         Width="35"
                         CornerRadius="35" 
-                        Background="{StaticResource PurpleBrush}" 
+                        Background="{StaticResource PurpleGradientBrush}" 
                         Grid.Column="1"
                         VerticalAlignment="Center">
 

@@ -16,13 +16,13 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontFamily" Value="{StaticResource MaterialIcon}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
         
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid Margin="{TemplateBinding Margin}">
+                    <Border Margin="{TemplateBinding Margin}">
                         
                         <!--The icon text-->
                         <TextBlock Text="{TemplateBinding Content}"
@@ -34,7 +34,7 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    />
-                    </Grid>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -46,8 +46,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border CornerRadius="15" 
-                            Background="{StaticResource PurpleBrush}"
-                            Padding="23 4">
+                            Background="{StaticResource PurpleGradientBrush}"
+                            Padding="17 5">
                         <TextBlock Text="{TemplateBinding Content}"
                                    FontSize="{StaticResource FontSizeSmall}"
                                    Foreground="White"
@@ -60,7 +60,7 @@
 
     <Style x:Key="FullRoundedButton" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource MaterialIcon}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Padding" Value="10" />
@@ -84,14 +84,15 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    >
-                            <TextBlock.OpacityMask>
+                            <!--<TextBlock.OpacityMask>
                                 <VisualBrush Visual="{Binding ElementName=border}" />
-                            </TextBlock.OpacityMask>
+                            </TextBlock.OpacityMask>-->
                         </TextBlock>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{StaticResource DarkGreyBrush}" />
+                            <Setter Property="Foreground" Value="White" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

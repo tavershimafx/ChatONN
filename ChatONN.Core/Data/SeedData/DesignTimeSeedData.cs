@@ -12,7 +12,7 @@ namespace ChatONN.Core.Data.SeedData
             {
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
+                    Username = "Zinabe",
                     LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 3,
@@ -21,8 +21,8 @@ namespace ChatONN.Core.Data.SeedData
                 },
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
-                    LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
+                    Username = "Tari",
+                    LastMessage = "I've mailed you the file. Check your inbox.",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 2,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar2.jpg",
@@ -30,8 +30,8 @@ namespace ChatONN.Core.Data.SeedData
                 },
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
-                    LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
+                    Username = "Kosi",
+                    LastMessage = "Last night party was awesome. Wish we could have some more time together.",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 1,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar3.jpg",
@@ -39,8 +39,8 @@ namespace ChatONN.Core.Data.SeedData
                 },
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
-                    LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
+                    Username = "Hemen",
+                    LastMessage = "Are you there?",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 2,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar4.jpg",
@@ -48,8 +48,8 @@ namespace ChatONN.Core.Data.SeedData
                 },
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
-                    LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
+                    Username = "Tibobo",
+                    LastMessage = "Bro, I need your help. Call me.",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 2,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar5.jpg",
@@ -57,8 +57,8 @@ namespace ChatONN.Core.Data.SeedData
                 },
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
-                    LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
+                    Username = "Chioma",
+                    LastMessage = "Hey, will you go to party with me this weekend?",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 0,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar6.jpg",
@@ -66,8 +66,8 @@ namespace ChatONN.Core.Data.SeedData
                 },
                 new RecentChatItemViewModel
                 {
-                    Username = "Ankit Mishra",
-                    LastMessage = "Are we meeting today? Lets talk about the progress of our work.",
+                    Username = "Maudlin",
+                    LastMessage = "Sweethear, how have you been?",
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 2,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar1.jpg",
@@ -146,6 +146,116 @@ namespace ChatONN.Core.Data.SeedData
                     Username = "Abhiman Singh",
                     Message = "2 Mutuals",
                     UserProfileUrl = "/Resources/Images/sm/avatar4.jpg"
+                }
+            };
+        }
+
+        public static ObservableLinkedList ChatMessages()
+        {
+            return new ObservableLinkedList(Messages());
+        }
+
+        public static IEnumerable<ChatMessageViewModel> Messages()
+        {
+            return new List<ChatMessageViewModel>
+            {
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "Hey! listen",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "I really like your idea, but I still think we can do more in this",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "I will share something.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "Let's together work on this and create something more awesome.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "Sounds perfect.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "So can you come to my place at around 8PM today?",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "I'll be there.",
+                    MessageTime = DateTimeOffset.Now
+                },
+
+
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "Hey! listen",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "I really like your idea, but I still think we can do more in this",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "I will share something.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "Let's together work on this and create something more awesome.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "Sounds perfect.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = false,
+                    Message = "So can you come to my place at around 8PM today?",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "I'll be there.",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "So can you come to my place at around 8PM today?",
+                    MessageTime = DateTimeOffset.Now
+                },
+                new ChatMessageViewModel
+                {
+                    IsSentByMe = true,
+                    Message = "So can you come to my place at around 8PM today?",
+                    MessageTime = DateTimeOffset.Now
                 }
             };
         }

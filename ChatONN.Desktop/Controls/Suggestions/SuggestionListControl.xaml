@@ -14,10 +14,10 @@
                       BorderThickness="0"
                       Background="Transparent"
                       MaxHeight="250">
-            <ItemsControl ItemsSource="{Binding Items}" Padding="0 0 0 10">
+            <ItemsControl ItemsSource="{Binding Items}" Padding="0 0 0 0">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <controls:SuggestionItemControl />
+                        <controls:SuggestionItemControl Cursor="Hand" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
