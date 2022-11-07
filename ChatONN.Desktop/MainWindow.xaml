@@ -100,12 +100,12 @@
 
                 <!--Top header bar-->
                 <Border Grid.Row="0" VerticalAlignment="Bottom">
-                    <Border.Effect>
+                    <!--<Border.Effect>
                         <DropShadowEffect BlurRadius="5" ShadowDepth="5" 
                                           Color="{StaticResource Grey}" 
                                           Opacity="0.4"
                                           Direction="270"/>
-                    </Border.Effect>
+                    </Border.Effect>-->
                     <Grid Background="White">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -118,8 +118,8 @@
                             <!--user profile picture-->
                             <Border Padding="5">
                                 <Border Height="40"
-                                Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                                CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+                                        Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                        CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
                                     <Border.Background>
                                         <ImageBrush ImageSource="/Resources/Images/sm/avatar3.jpg" />
                                     </Border.Background>
@@ -146,19 +146,19 @@
                             <!--call Icon-->
                             <Button Style="{StaticResource IconButton}"
                                 Content="{StaticResource PhoneIcon}"
-                                Padding="20"
+                                Padding="24"
                                 VerticalAlignment="Center" />
 
                             <!--video Icon-->
                             <Button Style="{StaticResource IconButton}"
                                 Content="{StaticResource VideoIcon}"
-                                Padding="20"
+                                Padding="24"
                                 VerticalAlignment="Center" />
 
                             <!--more Icon-->
                             <Button Style="{StaticResource IconButton}"
                                 Content="{StaticResource HorizontalEllipsisIcon}"
-                                Padding="20"
+                                Padding="24"
                                 VerticalAlignment="Center" />
                         </StackPanel>
                     </Grid>
@@ -201,17 +201,17 @@
                                 <!--Emoji button-->
                                 <Button Style="{StaticResource FullRoundedButton}"
                                         Content="{StaticResource EmojiIcon}"
-                                        Padding="7" />
+                                        Padding="10" />
 
                                 <!--Mic button-->
                                 <Button Style="{StaticResource FullRoundedButton}"
                                         Content="{StaticResource MicIcon}"
-                                        Padding="7" />
+                                        Padding="10" />
 
                                 <!--send button-->
                                 <Button Style="{StaticResource FullRoundedButton}"
                                         Content="{StaticResource SendMessageIcon}"
-                                        Padding="7" />
+                                        Padding="10" />
                             </StackPanel>
                         </Grid>
                     </Border>

@@ -14,7 +14,7 @@ namespace ChatONN.Desktop.ValueConverters
             }
             else
             {
-                return Application.Current.FindResource("DarkGreyBrush");
+                return Application.Current.FindResource("GreyBrush");
             }
         }
     }

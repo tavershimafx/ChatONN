@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:ChatONN.Desktop.ValueConverters">
     
     <!--General button styles-->
     <Style x:Key="ButtonBase" TargetType="{x:Type Button}" BasedOn="{StaticResource GeneralStyle}">
@@ -11,30 +12,62 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="IconButton" TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBase}">
+    <Style x:Key="IconButton" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontFamily" Value="{StaticResource MaterialIcon}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
         
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Margin="{TemplateBinding Margin}">
+                    <Border Margin="{TemplateBinding Margin}"
+                            Padding="{TemplateBinding Padding}"
+                            x:Name="border">
                         
-                        <!--The icon text-->
-                        <TextBlock Text="{TemplateBinding Content}"
-                                   FontFamily="{TemplateBinding FontFamily}"
-                                   FontSize="{TemplateBinding FontSize}"
-                                   Foreground="{TemplateBinding Foreground}"
-                                   Background="{TemplateBinding Background}"
-                                   Padding="{TemplateBinding Padding}"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   />
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            
+                            <!--The notify count-->
+                            <Border Height="10"
+                                    Margin="0 0 0 -5"
+                                    Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                    CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                    Background="{StaticResource PurpleGradientBrush}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Visibility="{TemplateBinding Tag, Converter={converters:StringToVisibilityConverter}}"
+                                    >
+
+                                <TextBlock FontFamily="{StaticResource LatoRegular}"
+                                            Text="{TemplateBinding Tag}"
+                                            FontSize="8"
+                                            Foreground="White" 
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                             />
+                            </Border>
+
+                            <!--The icon text-->
+                            <TextBlock Text="{TemplateBinding Content}"
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Background="{TemplateBinding Background}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                        />
+                        </StackPanel>
                     </Border>
+                    
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource GreyBrush}"
+                                    TargetName="border"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -60,34 +93,31 @@
 
     <Style x:Key="FullRoundedButton" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="{StaticResource DarkGreyBrush}" />
-        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontFamily" Value="{StaticResource MaterialIcon}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="Padding" Value="10" />
+        <Setter Property="Padding" Value="15" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
 
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}" x:Name="border">
-                    <Border CornerRadius="20" 
-                            Margin="{TemplateBinding Margin}"
-                            ClipToBounds="True">
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Margin="{TemplateBinding Margin}" 
+                            Height="{TemplateBinding Padding}"
+                            Width="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="20">
 
-                        <!--The icon text-->
-                        <TextBlock Text="{TemplateBinding Content}"
+                            <!--The icon text-->
+                            <TextBlock Text="{TemplateBinding Content}"
                                    FontFamily="{TemplateBinding FontFamily}"
                                    FontSize="{TemplateBinding FontSize}"
                                    Foreground="{TemplateBinding Foreground}"
-                                   Background="{TemplateBinding Background}"
                                    Padding="{TemplateBinding Padding}"
                                    VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   >
-                            <!--<TextBlock.OpacityMask>
-                                <VisualBrush Visual="{Binding ElementName=border}" />
-                            </TextBlock.OpacityMask>-->
-                        </TextBlock>
+                                   HorizontalAlignment="Center"/>
+                        
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

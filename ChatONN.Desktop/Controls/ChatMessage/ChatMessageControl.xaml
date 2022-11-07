@@ -23,7 +23,7 @@
                             Text="{Binding Message}"
                             FontSize="{StaticResource FontSizeRegular}"
                             TextWrapping="Wrap"
-                            Foreground="{Binding IsSentByMe, Converter={converters:IsSentByMeToForegroundConverter}}"
+                            Foreground="{Binding IsSentByMe, Converter={converters:BooleanToForegroundConverter}}"
                             />
         </Border>
 </UserControl>

@@ -38,41 +38,42 @@
                 <!--Comment-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="0"
                         Content="{StaticResource ChatIcon}"
-                        Padding="20"
+                        Padding="17"
+                        Tag="1"
                         />
 
                 <!--Phone Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="1"
                         Content="{StaticResource PhoneIcon}"
-                        Padding="20"
+                        Padding="17"
                         />
 
                 <!--Messages Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="2"
                         Content="{StaticResource MessageIcon}"
-                        Padding="20"
+                        Padding="17"
+                        Tag="5"
                         />
 
                 <!--Users Icon-->
                 <Button Style="{StaticResource IconButton}" Grid.Column="3"
                         Content="{StaticResource UsersIcon}"
-                        Padding="20"
+                        Padding="17"
                         />
 
                 <!--user profile picture-->
-
-            <Viewbox Grid.Column="4">
-                <Border Padding="5">
-                    <Border Height="15"
-                            Width="{Binding Height, RelativeSource={RelativeSource Self}}"
-                            CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Resources/Images/sm/avatar4.jpg" />
-                        </Border.Background>
+                <Viewbox Grid.Column="4">
+                    <Border Padding="3">
+                        <Border Height="15"
+                                Width="{Binding Height, RelativeSource={RelativeSource Self}}"
+                                CornerRadius="{Binding Height, RelativeSource={RelativeSource Self}}">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Resources/Images/sm/avatar4.jpg" />
+                            </Border.Background>
+                        </Border>
                     </Border>
-                </Border>
-            </Viewbox>
-        </Grid>
+                </Viewbox>
+            </Grid>
 
             <!--Chats label and new button-->
             <Grid Margin="20 25 20 0" Grid.Row="1">

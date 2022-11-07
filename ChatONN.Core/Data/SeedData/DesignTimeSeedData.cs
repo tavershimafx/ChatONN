@@ -35,7 +35,7 @@ namespace ChatONN.Core.Data.SeedData
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 1,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar3.jpg",
-                    IsSelected = false
+                    IsSelected = true
                 },
                 new RecentChatItemViewModel
                 {
@@ -44,7 +44,7 @@ namespace ChatONN.Core.Data.SeedData
                     LastMessageTime = DateTimeOffset.Now,
                     UnreadMessageCount = 2,
                     ProfilePictureUrl = "/Resources/Images/sm/avatar4.jpg",
-                    IsSelected = true
+                    IsSelected = false
                 },
                 new RecentChatItemViewModel
                 {
